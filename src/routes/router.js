@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../pages/Blog";
+import CourseDetails from "../pages/CourseDetails";
 import Courses from "../pages/Courses";
 import ErrorPage from "../pages/ErrorPage";
 import FAQ from "../pages/FAQ";
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
         path: '/courses',
         element: <Courses></Courses>,
         loader: ()=>fetch('https://learning-bee-server.vercel.app/courses')
+      },
+      {
+        path: '/courses/:id',
+        element: <CourseDetails></CourseDetails>,
+        loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
       },
       {
         path: '/FAQ',

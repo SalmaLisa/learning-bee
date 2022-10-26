@@ -14,8 +14,10 @@ const Courses = () => {
          courses.map(course => <Sidebar course = {course} key ={course._id}></Sidebar>) 
         }
       </div>
-     <div className='col-span-3'> {
-        courses.map(course => <SingleCourse course = {course} key ={course._id}></SingleCourse>)
+     <div className='col-span-3 px-20 mb-20'> {
+        <div className='grid grid-cols-3 gap-10'>
+          { courses.map(course => <SingleCourse course = {course} key ={course._id}></SingleCourse>)}
+       </div>
       }</div>
     </div>
   );
