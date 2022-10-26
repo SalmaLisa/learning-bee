@@ -1,31 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import Lottie from "lottie-react";
+import logoAnimation from "../assets/animations/logoAnimation.json";
+import img from "../assets/images/logo-title.jpg";
+import "../styles/Nav.css";
 
 const Nav = () => {
   return (
     <div>
-      <div className="navbar bg-base-100">
-  <div className="flex-1">
-    <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
-  </div>
-  <div className="flex-none">
-    <ul className="menu menu-horizontal p-0">
-      <li><a>Item 1</a></li>
-      <li tabIndex={0}>
-        <a>
-          Parent
-          <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-        </a>
-        <ul className="p-2 bg-base-100">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-</div>
+      <div className="shadow-lg flex items-center justify-between md:px-20">
+        <div>
+          <Link to='/' className=" flex items-center">
+            <Lottie
+              className="mt-5 mr-2"
+              style={{ width: "50px" }}
+              animationData={logoAnimation}
+            />
+            <img src={img} alt="" />
+          </Link>
+        </div>
+        <div className=" flex ">
+          <div>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+            to="/home"
+          >
+            Home
+          </NavLink>
+          <NavLink className="ml-5" to="/courses">
+            Courses
+          </NavLink>
+          <NavLink className="ml-5" to="/FAQ">
+            FAQ
+          </NavLink>
+          <NavLink className="ml-5" to="/blog">
+            Blog
+          </NavLink>
+          <NavLink className="ml-5" to="/login">
+            Login
+          </NavLink>
+        </div>
+          <input type="checkbox" className="toggle ml-5"/>
+        </div>
+      </div>
     </div>
   );
 };
