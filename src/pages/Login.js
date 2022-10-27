@@ -1,55 +1,103 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/courses.css'
+import React, { useContext} from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import "../styles/courses.css";
+import { BsGoogle, BsGithub } from "react-icons/bs";
+import { AuthContext } from "../Contexts/UserContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const { handleLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate= useNavigate()
+  const from = location.state.from.pathName || '/';
   const handleFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters.')
-    }
-    else {
-      setError('')
-    }
-    form.reset()
-   
-    
+    //handle User Login
+    handleLogin(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      toast.success("Successfully logged in");
+      console.log(user);
+      form.reset();
+      navigate(from,{replace:true})
+    })
+    .catch((error) => {
+      toast.error(error.message);
+      console.error(error);
+    });
+  };
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then(() => { })
+    .catch(error=>console.log(error))
+  }
+  const handleGithubSignIn = () => {
+    gitHubSignIn()
+      .then(() => {})
+    .catch(error=>console.log(error))
   }
   return (
-    <form onSubmit={handleFormSubmit} className="card-body lg:w-1/3 mx-auto px-30 bg-base-300 shadow-layer rounded mt-20">
-      <h1 style={{ fontFamily: "'Oswald', sans-serif" }} className='text-3xl font-semibold text-center'>Please <span className='text-yellow-500'>Login</span></h1>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="text" name='email' placeholder="email" className="input input-bordered" required/>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="text" name='password' placeholder="password" className="input input-bordered" required/>
-          <label className="label">
-          {error && <small className='text-red-600'>{error}</small>}
-          </label>
-          <label className="label">
-            <Link className="label-text-alt link link-hover">Forgot password?</Link>
-          </label>
+    <form
+      onSubmit={handleFormSubmit}
+      className="card-body lg:w-1/3 mx-auto px-30 bg-base-300 shadow-layer rounded my-20"
+    >
+      <h1
+        style={{ fontFamily: "'Oswald', sans-serif" }}
+        className="text-3xl font-semibold text-center"
+      >
+        Please <span className="text-yellow-500">Login</span>
+      </h1>
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Email</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          className="input input-bordered"
+          required
+        />
       </div>
-      <div>
-        
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Password</span>
+        </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          className="input input-bordered"
+          required
+        />
+        <label className="label">
+          <Link className="label-text-alt link link-hover">
+            Forgot password?
+          </Link>
+        </label>
+        <label className="label">
+          <Link to='/register' className="label-text-alt link link-hover">
+            New to this site ? Create an account
+          </Link>
+        </label>
       </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-warning">Login</button>
-        </div>
-      </form>
+      
+      <div className="form-control mt-6">
+        <button className="btn btn-warning">Login</button>
+      </div>
+      <div className="flex text-3xl justify-center mt-5">
+        <button onClick={handleGoogleSignIn}>
+          <BsGoogle />
+        </button>
+        <button onClick={handleGithubSignIn}>
+          <BsGithub className="ml-5" />
+        </button>
+      </div>
+    </form>
   );
 };
 

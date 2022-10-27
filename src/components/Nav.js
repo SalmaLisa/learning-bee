@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Lottie from "lottie-react";
 import logoAnimation from "../assets/animations/logoAnimation.json";
 import img from "../assets/images/logo-title.jpg";
 import "../styles/Nav.css";
+import { AuthContext } from "../Contexts/UserContext";
 
 const Nav = () => {
+  const { user,logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+    .catch(error=>console.error(error))
+  }
   return (
     <div>
       <div className="shadow-lg flex items-center justify-between md:px-20">
@@ -35,10 +42,18 @@ const Nav = () => {
           </NavLink>
           <NavLink className="ml-5" to="/blog">
             Blog
-          </NavLink>
-          <NavLink className="ml-5" to="/login">
+            </NavLink>
+            {
+              user?.uid ?
+              <NavLink onClick={handleLogOut} className="ml-5" to="/login">
+              Log Out
+                </NavLink>
+                :
+               <NavLink className="ml-5" to="/login">
             Login
-          </NavLink>
+          </NavLink> 
+            }
+          
         </div>
           <input type="checkbox" className="toggle ml-5"/>
         </div>

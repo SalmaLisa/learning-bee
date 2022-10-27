@@ -5,7 +5,7 @@ import { MdDownload } from 'react-icons/md';
 
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
-  const { _id,title, img, desc,Price, rating } = courseDetails;
+  const { title, img, desc,Price, rating } = courseDetails;
   console.log(courseDetails);
   // Function will execute on click of button
   const onButtonClick = () => {

@@ -9,7 +9,7 @@ import UserContext from './Contexts/UserContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <UserContext>
-    <Toaster />
+    <Toaster  position="top-center"/>
     <App />
   </UserContext>
 );
