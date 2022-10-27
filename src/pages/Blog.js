@@ -1,49 +1,32 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../Contexts/UserContext";
-import demoUser from "../assets/images/user-pic.png";
-import "../styles/courses.css";
+import React from 'react';
+
 
 const Blog = () => {
-  const { user } = useContext(AuthContext);
+  
   return (
-    <div className="hero min-h-screen shadow-lg">
-      {/* <div className="hero-content flex-col lg:flex-row">
-        <div className="card card-compact w-80 lg:mr-24 shadow-xl bg-base-300 shadow-layer p-10">
-          <div className="text-center">
-            {user?.photoURL ? (
-              <div className="avatar online">
-                <div className="w-24 rounded-full">
-                  <img src={user.photoURL} alt="" />
-                </div>
-              </div>
-            ) : (
-              <div className="avatar online">
-                <div className="w-32 rounded-full">
-                  <img src={demoUser} alt="" />
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="card-body">
-            <h2 className="card-title">
-              {user?.displayName ? user.displayName : "No name found"}
-            </h2>
-            <p className="card-text">
-              <span className="font-semibold">Email : </span>{" "}
-              {user?.email ? user.email : "No email found"}
-            </p>
-            <p className="card-text">
-              <span className="font-semibold">Email Status :</span>{" "}
-              {(user?.emailVerified).toString()}
-            </p>
-          </div>
-        </div>
-
-        <div>
-         
-        </div>
-      </div> */}
-      
+    <div className="px-20 lg:w-3/5 mx-auto mt-14">
+      <div className='mb-5'>
+      <h1 className='text-2xl font-bold mb-3'>1.  What is cors?</h1>
+      <p><span className='bg-yellow-500 mr-3 text-white font-semibold px-1'>Ans : </span>Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.</p>
+      </div>
+      <div className='mb-5'>
+      <h1 className='text-2xl font-bold mb-3'>2.  Why are you using firebase? What other options do you have to implement authentication?</h1>
+        <p><span className='bg-yellow-500 mr-3 text-white font-semibold px-1'>Ans : </span>The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.<br />
+        Auth0, MongoDB, Passport, Okta, and Firebase are the most popular alternatives and competitors to Firebase Authentication.<br />
+        Usually, authentication by a server entails the use of a user name and password. Other ways to authenticate can be through cards, retina scans, voice recognition, and fingerprints.
+      </p>
+      </div>
+      <div className='mb-5'>
+      <h1 className='text-2xl font-bold mb-3'>3.  How does the private route work?</h1>
+        <p><span className='bg-yellow-500 mr-3 text-white font-semibold px-1'>Ans : </span>The The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
+      </p>
+      </div>
+      <div className='mb-20'>
+      <h1 className='text-2xl font-bold mb-3'>4.  What is Node? How does Node work?</h1>
+        <p><span className='bg-yellow-500 mr-3 text-white font-semibold px-1'>Ans : </span>The Node is an asynchronous event-driven JavaScript runtime. It allows developers to write JavaScript code that runs directly in a computer process itself instead of in a browser. <br />
+        It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
+      </p>
+      </div>
     </div>
   );
 };

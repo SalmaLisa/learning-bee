@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import PremiumPage from "../pages/PremiumPage";
 import Register from "../pages/Register";
+import User from "../pages/User";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element:<Blog></Blog>
+      },
+      {
+        path: '/user',
+        element:<PrivateRoute><User></User></PrivateRoute>
       },
       {
         path: '/premium/:id',

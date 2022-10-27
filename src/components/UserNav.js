@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/UserContext";
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const UserNav = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +17,8 @@ const UserNav = () => {
       </div>
       <div className="flex items-center">
         <p  className="font-bold mr-2">{user?.email}</p>
-        {user?.photoURL ? 
+            <Link to='/user'>
+            {user?.photoURL ? 
           <div className=" tooltip tooltip-right" data-tip="User">
               <div className="avatar online ">
         <div className="w-12 rounded-full">
@@ -31,6 +33,7 @@ const UserNav = () => {
         </button>
          </div>
         }
+            </Link>
       </div>
     </div>}
     </>
