@@ -1,5 +1,6 @@
 .shadow-layer{
-  box-shadow: -10px 10px 0 black;
+  box-shadow: -10px 10px 0 black,
+  10px -10px 0 #FACC15;
 }
 .single-course img{
 transition: 2s;
