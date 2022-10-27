@@ -3,7 +3,7 @@ import { AiFillStar,AiOutlineStar } from 'react-icons/ai';
 
 const Ratings = ({rating}) => {
   return (
-    <div className='text-yellow-400 text-xl'>
+    <div className='text-yellow-400 text-xl ml-10 md:ml-0'>
       {
         rating === 1 &&
         <div className='flex'>

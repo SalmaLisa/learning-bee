@@ -7,7 +7,7 @@ const SingleCourse = ({ course }) => {
     <Link
       to={`/courses/${_id}`}
       style={{ height: "320px" }}
-      className="rounded-lg shadow-lg shadow-black relative single-course"
+      className="rounded-lg shadow-lg shadow-black relative single-course mt-10 md:mt-0 block"
     >
       <div className="overflow-hidden rounded-lg">
         <img

@@ -23,23 +23,23 @@ const CourseDetails = () => {
     })
 }
   return (
-    <div>
+    <div >
       <center>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 pb-20 mb:pb-0">
         <div className="hero-content flex-col lg:flex-row">
           <img style={{width:"520px"}} src={img} className="mask mask-parallelogram " alt="" />
           <div>
             <h1 className="text-5xl font-bold">{title}</h1>
             <p className="py-6">{desc}</p>
-            <div className="flex mb-10">
+            <div className="flex mb-10 ">
               <Ratings rating={rating}></Ratings>
               <p className="font-bold ml-20">Price : {Price}</p>
             </div>
-            <div className="flex items-center">
+            <div className="md:flex items-center block">
                 <Link to={`/premium/${_id}`}>
-                <button className="btn btn-warning font-bold mr-5 hover:bg-yellow-500">Get Premium Access</button></Link>
+                <button className="btn btn-warning font-bold mr-5 hover:bg-yellow-500 mb-5 md:mb-0">Get Premium Access</button></Link>
             <button  onClick={onButtonClick} className="btn btn-warning font-bold mr-5 hover:bg-yellow-500"><MdDownload className="text-2xl" /><span> Download pdf</span></button>
-            <Link to='/courses'><button className="btn  font-bold">Not now</button></Link>
+            <Link className="block mt-5 md:flex md:mt-0" to='/courses'><button className="btn  font-bold">Not now</button></Link>
            </div>
           </div>
         </div>

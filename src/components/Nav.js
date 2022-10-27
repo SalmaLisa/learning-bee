@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Lottie from "lottie-react";
 import logoAnimation from "../assets/animations/logoAnimation.json";
 import img from "../assets/images/logo-title.jpg";
 import "../styles/Nav.css";
 import { AuthContext } from "../Contexts/UserContext";
+import { AiOutlineMenu } from 'react-icons/ai'
 
 const Nav = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const [open, setOpen] = useState(false)
+  console.log(open)
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -15,9 +18,9 @@ const Nav = () => {
   }
   return (
     <div>
-      <div className="shadow-lg flex items-center justify-between md:px-20">
-        <div>
-          <Link to='/' className=" flex items-center">
+      <div className="shadow-lg md:flex items-center justify-between md:px-20">
+        <div className="flex items-center justify-between px-5">
+          <Link to='/' className=" flex items-center ">
             <Lottie
               className="mt-5 mr-2"
               style={{ width: "50px" }}
@@ -25,9 +28,10 @@ const Nav = () => {
             />
             <img src={img} alt="" />
           </Link>
+          <AiOutlineMenu onClick={()=>setOpen(!open)} className="mt-6 text-4xl md:hidden"/> 
         </div>
-        <div className=" flex ">
-          <div>
+        <div className={`lg:flex ${open ? "block":"hidden"}`}>
+          <div className="px-10 pb-7 md:pb-0 md:pl-0">
           <NavLink
             className={({ isActive }) => (isActive ? "active" : undefined)}
             to="/home"
@@ -55,7 +59,7 @@ const Nav = () => {
             }
           
         </div>
-          <input type="checkbox" className="toggle ml-5"/>
+          <input type="checkbox" className="toggle md:ml-5  ml-40"/>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import React from 'react';
 const Blog = () => {
   
   return (
-    <div className="px-20 lg:w-3/5 mx-auto mt-14">
+    <div className="md:px-20 px-10 lg:w-3/5 mx-auto mt-14">
       <div className='mb-5'>
       <h1 className='text-2xl font-bold mb-3'>1.  What is cors?</h1>
       <p><span className='bg-yellow-500 mr-3 text-white font-semibold px-1'>Ans : </span>Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.</p>
