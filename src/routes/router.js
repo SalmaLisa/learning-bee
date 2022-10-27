@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage";
 import FAQ from "../pages/FAQ";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import PremiumPage from "../pages/PremiumPage";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+        element: <CourseDetails></CourseDetails>,
         loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
       },
       {
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element:<Blog></Blog>
+      },
+      {
+        path: '/premium/:id',
+        element: <PrivateRoute><PremiumPage></PremiumPage></PrivateRoute>,
+        loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
       },
     ]
   }

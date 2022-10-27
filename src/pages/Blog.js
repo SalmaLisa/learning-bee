@@ -7,7 +7,7 @@ const Blog = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="hero min-h-screen shadow-lg">
-      <div className="hero-content flex-col lg:flex-row">
+      {/* <div className="hero-content flex-col lg:flex-row">
         <div className="card card-compact w-80 lg:mr-24 shadow-xl bg-base-300 shadow-layer p-10">
           <div className="text-center">
             {user?.photoURL ? (
@@ -42,7 +42,8 @@ const Blog = () => {
         <div>
          
         </div>
-      </div>
+      </div> */}
+      
     </div>
   );
 };
