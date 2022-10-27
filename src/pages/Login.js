@@ -8,8 +8,9 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { handleLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const location = useLocation();
+  console.log(location)
   const navigate= useNavigate()
-  const from = location.state.from.pathName || '/';
+  const from = location.state?.from.pathname || '/';
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -23,7 +24,7 @@ const Login = () => {
       toast.success("Successfully logged in");
       console.log(user);
       form.reset();
-      navigate(from,{replace:true})
+      navigate(from, {replace:true})
     })
     .catch((error) => {
       toast.error(error.message);
@@ -32,12 +33,16 @@ const Login = () => {
   };
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(() => { })
+      .then(() => {
+        navigate(from, {replace:true})
+       })
     .catch(error=>console.log(error))
   }
   const handleGithubSignIn = () => {
     gitHubSignIn()
-      .then(() => {})
+      .then(() => {
+        navigate(from, {replace:true})
+      })
     .catch(error=>console.log(error))
   }
   return (

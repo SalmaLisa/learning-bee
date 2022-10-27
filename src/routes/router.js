@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <CourseDetails></CourseDetails>,
+        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
         loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
       },
       {
