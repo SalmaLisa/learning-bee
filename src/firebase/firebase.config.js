@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "learning-bee-client",
   storageBucket: "learning-bee-client.appspot.com",
   messagingSenderId: "754176107826",
-  appId: "1:754176107826:web:fa42363d3af28de4a4e32b"
+  appId: "1:754176107826:web:fa42363d3af28de4a4e32b",
 };
 
 // Initialize Firebase

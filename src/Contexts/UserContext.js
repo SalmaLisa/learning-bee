@@ -20,10 +20,10 @@ const UserContext = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
-console.log(loading)
+  console.log(loading);
   //create user
   const createUser = (email, password) => {
-    setLoading(true)
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //update userInfo
@@ -36,13 +36,13 @@ console.log(loading)
 
   //handle login
   const handleLogin = (email, password) => {
-    setLoading(true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //log out
   const logOut = () => {
-    setLoading(true)
+    setLoading(true);
     return signOut(auth);
   };
 

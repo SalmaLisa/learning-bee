@@ -7,7 +7,8 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const [error, setError] = useState("");
-  const { createUser, updateUserInfo, googleSignIn ,gitHubSignIn } = useContext(AuthContext);
+  const { createUser, updateUserInfo, googleSignIn, gitHubSignIn } =
+    useContext(AuthContext);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,7 +37,7 @@ const Register = () => {
         toast.error(error.message);
         console.error(error);
       });
-    
+
     //update users name and photo
     const updateUserNameAndPhoto = () => {
       updateUserInfo(name, photoURL)
@@ -46,20 +47,20 @@ const Register = () => {
         });
     };
   };
-  
+
   //google sign in
   const handleGoogleSignIn = () => {
     googleSignIn()
-      .then(() => { })
-    .catch(error=>console.log(error))
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
   //github sign in
   const handleGithubSignIn = () => {
     gitHubSignIn()
       .then(() => {})
-    .catch(error=>console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       <form

@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/courses.css";
 import { BsGoogle, BsGithub } from "react-icons/bs";
@@ -8,9 +8,9 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { handleLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location)
-  const navigate= useNavigate()
-  const from = location.state?.from.pathname || '/';
+  console.log(location);
+  const navigate = useNavigate();
+  const from = location.state?.from.pathname || "/";
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,32 +19,32 @@ const Login = () => {
 
     //handle User Login
     handleLogin(email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      toast.success("Successfully logged in");
-      console.log(user);
-      form.reset();
-      navigate(from, {replace:true})
-    })
-    .catch((error) => {
-      toast.error(error.message);
-      console.error(error);
-    });
+      .then((userCredential) => {
+        const user = userCredential.user;
+        toast.success("Successfully logged in");
+        console.log(user);
+        form.reset();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        console.error(error);
+      });
   };
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then(() => {
-        navigate(from, {replace:true})
-       })
-    .catch(error=>console.log(error))
-  }
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
   const handleGithubSignIn = () => {
     gitHubSignIn()
       .then(() => {
-        navigate(from, {replace:true})
+        navigate(from, { replace: true });
       })
-    .catch(error=>console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -85,12 +85,12 @@ const Login = () => {
           </Link>
         </label>
         <label className="label">
-          <Link to='/register' className="label-text-alt link link-hover">
+          <Link to="/register" className="label-text-alt link link-hover">
             New to this site ? Create an account
           </Link>
         </label>
       </div>
-      
+
       <div className="form-control mt-6">
         <button className="btn btn-warning">Login</button>
       </div>

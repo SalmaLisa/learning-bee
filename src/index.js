@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Toaster } from 'react-hot-toast';
-import UserContext from './Contexts/UserContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Toaster } from "react-hot-toast";
+import UserContext from "./Contexts/UserContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UserContext>
-    <Toaster  position="top-center"/>
+    <Toaster position="top-center" />
     <App />
   </UserContext>
 );

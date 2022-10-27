@@ -14,55 +14,65 @@ import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: '/',
-        element:<Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: '/home',
-        element:<Home></Home>
+        path: "/home",
+        element: <Home></Home>,
       },
       {
-        path: '/courses',
+        path: "/courses",
         element: <Courses></Courses>,
-        loader: ()=>fetch('https://learning-bee-server.vercel.app/courses')
+        loader: () => fetch("https://learning-bee-server.vercel.app/courses"),
       },
       {
-        path: '/courses/:id',
+        path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
-        loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`),
       },
       {
-        path: '/FAQ',
-        element:<FAQ></FAQ>
+        path: "/FAQ",
+        element: <FAQ></FAQ>,
       },
       {
-        path: '/login',
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element:<Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
       {
-        path: '/blog',
-        element:<Blog></Blog>
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
-        path: '/user',
-        element:<PrivateRoute><User></User></PrivateRoute>
+        path: "/user",
+        element: (
+          <PrivateRoute>
+            <User></User>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/premium/:id',
-        element: <PrivateRoute><PremiumPage></PremiumPage></PrivateRoute>,
-        loader: ({params})=>fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`)
+        path: "/premium/:id",
+        element: (
+          <PrivateRoute>
+            <PremiumPage></PremiumPage>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://learning-bee-server.vercel.app/courses/${params.id}`),
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
 export default router;

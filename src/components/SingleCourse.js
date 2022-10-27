@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleCourse = ({ course }) => {
-  const { _id, title, img, desc,Price,rating } = course;
+  const { _id, title, img, desc, Price, rating } = course;
   return (
     <Link
       to={`/courses/${_id}`}

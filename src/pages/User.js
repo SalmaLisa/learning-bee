@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/UserContext";
 import demoUser from "../assets/images/user-pic.png";
@@ -40,11 +39,8 @@ const User = () => {
           </div>
         </div>
 
-        <div>
-         
-        </div>
+        <div></div>
       </div>
-
     </div>
   );
 };
