@@ -6,7 +6,6 @@ import DownloadPage from "../components/DownLoadPdf";
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
   const { _id, title, img, desc, Price, rating } = courseDetails;
-  console.log(courseDetails);
 
   return (
     <div id="downloadPage">
@@ -19,6 +18,7 @@ const CourseDetails = () => {
             alt=""
           />
           <div>
+            
             <h1 className="text-5xl font-bold">{title}</h1>
             <p className="py-6">{desc}</p>
             <div className="flex mb-10 ">
@@ -31,15 +31,16 @@ const CourseDetails = () => {
                   Get Premium Access
                 </button>
               </Link>
-              <DownloadPage
-                roofElementId="downloadPage"
-                downloadFileName={`${title}.pdf`}
-                img={img}
-              ></DownloadPage>
+              
               <Link className="block mt-5 md:flex md:mt-0" to="/courses">
                 <button className="btn  font-bold">Not now</button>
               </Link>
             </div>
+            <DownloadPage
+                roofElementId="downloadPage"
+                downloadFileName={`${title}.pdf`}
+                img={img}
+              ></DownloadPage>
           </div>
         </div>
       </div>

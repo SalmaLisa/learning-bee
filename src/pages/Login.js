@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { handleLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const from = location.state?.from.pathname || "/";
   const handleFormSubmit = (e) => {

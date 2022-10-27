@@ -10,7 +10,6 @@ import { AiOutlineMenu } from "react-icons/ai";
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
-  console.log(open);
   const handleLogOut = () => {
     logOut()
       .then(() => {})

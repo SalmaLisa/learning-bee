@@ -20,7 +20,6 @@ const UserContext = ({ children }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
-  console.log(loading);
   //create user
   const createUser = (email, password) => {
     setLoading(true);
