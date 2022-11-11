@@ -18,7 +18,7 @@ const DownloadPage = ({ roofElementId, downloadFileName, img }) => {
     <div>
       <button
         onClick={downloadFileDocument}
-        className="btn btn-warning font-bold mr-5 hover:bg-yellow-500"
+        className="btn btn-warning font-bold md:mr-5 hover:bg-yellow-500"
       >
         <MdDownload className="text-2xl" />
         <span> Download pdf</span>

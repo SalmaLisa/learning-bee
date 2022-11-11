@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/courses.css";
 import { BsGoogle, BsGithub } from "react-icons/bs";
 import { AuthContext } from "../Contexts/UserContext";
 import toast from "react-hot-toast";
+import { useTitle } from "../Hooks/useTitle";
 
 const Login = () => {
-  const { handleLogin, googleSignIn, gitHubSignIn } = useContext(AuthContext);
+  const [email,setEmail]=useState('')
+  const { handleLogin, googleSignIn, gitHubSignIn ,resetPassword} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from.pathname || "/";
+  useTitle('Login')
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -44,6 +47,13 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
   };
+  const handleResetPassword = () => {
+    resetPassword(email)
+      .then(() => {
+      toast.success('Password reset link has been sent to your email.')
+      })
+    .catch(err=>toast.error(err.message))
+  }
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -60,6 +70,7 @@ const Login = () => {
           <span className="label-text">Email</span>
         </label>
         <input
+          onBlur={(e)=>setEmail(e.target.value)}
           type="email"
           name="email"
           placeholder="email"
@@ -79,7 +90,7 @@ const Login = () => {
           required
         />
         <label className="label">
-          <Link className="label-text-alt link link-hover">
+          <Link onClick={handleResetPassword} className="label-text-alt link link-hover">
             Forgot password?
           </Link>
         </label>

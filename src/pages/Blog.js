@@ -1,6 +1,8 @@
 import React from "react";
+import { useTitle } from "../Hooks/useTitle";
 
 const Blog = () => {
+  useTitle('Blog')
   return (
     <div className="md:px-20 px-10 lg:w-3/5 mx-auto mt-14">
       <div className="mb-5">
@@ -75,6 +77,7 @@ const Blog = () => {
           fast, and data-intensive.
         </p>
       </div>
+      
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -55,6 +56,11 @@ const UserContext = ({ children }) => {
     return signInWithPopup(auth, gitHubProvider);
   };
 
+// reset password
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
+
   //add user monitor
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -74,6 +80,7 @@ const UserContext = ({ children }) => {
     logOut,
     googleSignIn,
     gitHubSignIn,
+    resetPassword
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

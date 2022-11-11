@@ -1,7 +1,9 @@
 import React from "react";
 import bannerImg from "../assets/images/image.png";
+import { useTitle } from "../Hooks/useTitle";
 import "../styles/Home.css";
 const Home = () => {
+  useTitle('Home')
   return (
     <div>
       <div className="relative">

@@ -2,10 +2,12 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import SingleCourse from "../components/SingleCourse";
+import { useTitle } from "../Hooks/useTitle";
 import "../styles/courses.css";
 
 const Courses = () => {
   const courses = useLoaderData();
+  useTitle('Courses')
   return (
     <div className="md:grid grid-cols-4 shadow-lg  mt-10">
       <div className="bg-yellow-300 rounded-3xl h-64  md:ml-10 mx-8  p-10 shadow-layer">

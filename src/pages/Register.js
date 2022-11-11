@@ -1,14 +1,17 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/courses.css";
 import { BsGoogle, BsGithub } from "react-icons/bs";
 import { AuthContext } from "../Contexts/UserContext";
 import toast from "react-hot-toast";
+import { useTitle } from "../Hooks/useTitle";
 
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser, updateUserInfo, googleSignIn, gitHubSignIn } =
     useContext(AuthContext);
+  const navigate = useNavigate();
+  useTitle('Register')
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,6 +35,7 @@ const Register = () => {
         console.log(user);
         updateUserNameAndPhoto();
         form.reset();
+        navigate('/')
       })
       .catch((error) => {
         toast.error(error.message);

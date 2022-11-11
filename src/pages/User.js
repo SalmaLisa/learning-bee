@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/UserContext";
 import demoUser from "../assets/images/user-pic.png";
 import "../styles/courses.css";
+import { useTitle } from "../Hooks/useTitle";
 
 const User = () => {
   const { user } = useContext(AuthContext);
+  useTitle(`${user.displayName}`)
   return (
     <div className=" ">
       <div className="w-80 mx-auto mt-20">
